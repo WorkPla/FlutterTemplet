@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_template/features/home/home_page_cell.dart';
+import 'package:my_flutter_template/features/responsive_ui_flutter_screenutil_pub/responsive_ui.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({super.key, required this.title});
@@ -12,7 +13,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    var topics = ['a', 'b', 'c'];
+    var topics = ['Responsive Login Page'];
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
@@ -31,6 +32,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       backgroundColor: Colors.white),
                   onPressed: () {
                     print("Pressed on => $topic");
+                    if (index == 0) {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new ResponsiveLoginPage(
+                                    title: "Responsive Login Page",
+                                  )));
+                    }
                   },
                   child: new HomeTableCell(topic));
             },
