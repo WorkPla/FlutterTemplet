@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginButton extends StatelessWidget {
   final Function()? onTap;
-
-  const LoginButton({super.key, required this.onTap});
+  final String title;
+  const LoginButton({super.key, required this.onTap, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class LoginButton extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            "Sign In",
+            this.title,
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,

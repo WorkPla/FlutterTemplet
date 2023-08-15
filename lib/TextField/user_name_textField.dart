@@ -1,33 +1,35 @@
 import 'package:flutter/material.dart';
 
-class UserNameField extends StatefulWidget {
-  UserNameField({super.key, required this.title});
-  final String title;
+class UserNameField extends StatelessWidget {
+  final controller;
+  final bool obscureText;
+  final title;
 
-  @override
-  _UserNameFieldState createState() => _UserNameFieldState();
-}
+  const UserNameField({
+    super.key,
+    required this.title,
+    required this.controller,
+    required this.obscureText,
+  });
 
-class _UserNameFieldState extends State<UserNameField> {
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      keyboardType: TextInputType.visiblePassword,
-      decoration: InputDecoration(
-        floatingLabelBehavior:
-            FloatingLabelBehavior.never, //Hides label on focus or if filled
-        labelText: widget.title,
-        //filled: true, // Needed for adding a fill color
-        //fillColor: Colors.grey.shade800,
-        isDense: true, // Reduces height a bit
-        border: OutlineInputBorder(
-            //borderSide: BorderSide.none, // No border
-            //borderRadius: BorderRadius.circular(12), // Apply corner radius
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      child: TextField(
+        controller: controller,
+        obscureText: obscureText,
+        decoration: InputDecoration(
+            enabledBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
             ),
-        prefixIcon: Icon(Icons.supervised_user_circle, size: 24),
-        suffixIcon: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 0, 4, 0),
-        ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey.shade400),
+            ),
+            fillColor: Colors.grey.shade200,
+            filled: true,
+            hintText: title,
+            hintStyle: TextStyle(color: Colors.grey[500])),
       ),
     );
   }

@@ -15,6 +15,8 @@ class ResponsiveLoginPage extends StatefulWidget {
 }
 
 class _ResponsiveLoginPageState extends State<ResponsiveLoginPage> {
+  final usernameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +46,11 @@ class _ResponsiveLoginPageState extends State<ResponsiveLoginPage> {
               // Text Field
 
               SizedBox(height: 103.h),
-              UserNameField(title: "User Name"),
+              UserNameField(
+                title: "User Name",
+                controller: usernameController,
+                obscureText: false,
+              ),
               SizedBox(height: 16.h),
               PasswordField(),
               SizedBox(height: 29.h),
@@ -64,9 +70,12 @@ class _ResponsiveLoginPageState extends State<ResponsiveLoginPage> {
 
               // Login button
 
-              LoginButton(onTap: () {
-                print('tap on login button.');
-              }),
+              LoginButton(
+                onTap: () {
+                  print('tap on login button.');
+                },
+                title: "Login",
+              ),
               SizedBox(height: 40.h),
 
               // Don’t have an account? sign up

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_template/features/home/home_page_cell.dart';
 import 'package:my_flutter_template/features/responsive_ui_flutter_screenutil_pub/responsive_ui.dart';
+import 'package:my_flutter_template/features/firebase_auth/mobile_info.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({super.key, required this.title});
@@ -13,7 +14,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    var topics = ['Responsive Login Page'];
+    var topics = ['Responsive Login Page', 'Firebase Auth'];
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
@@ -37,7 +38,14 @@ class _MyHomePageState extends State<MyHomePage> {
                           context,
                           new MaterialPageRoute(
                               builder: (context) => new ResponsiveLoginPage(
-                                    title: "Responsive Login Page",
+                                    title: topic,
+                                  )));
+                    } else if (index == 1) {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new MobileInfo(
+                                    title: topic,
                                   )));
                     }
                   },
