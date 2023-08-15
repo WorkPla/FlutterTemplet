@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class UserNameField extends StatefulWidget {
-  const UserNameField({Key? key}) : super(key: key);
+  UserNameField({super.key, required this.title});
+  final String title;
 
   @override
   _UserNameFieldState createState() => _UserNameFieldState();
@@ -15,7 +16,7 @@ class _UserNameFieldState extends State<UserNameField> {
       decoration: InputDecoration(
         floatingLabelBehavior:
             FloatingLabelBehavior.never, //Hides label on focus or if filled
-        labelText: "Name",
+        labelText: widget.title,
         //filled: true, // Needed for adding a fill color
         //fillColor: Colors.grey.shade800,
         isDense: true, // Reduces height a bit

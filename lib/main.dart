@@ -21,13 +21,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (context, child) => MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            textTheme: GoogleFonts.nunitoTextTheme(Theme.of(context).textTheme),
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          home: MyHomePage(title: 'My Flutter Template')),
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          textTheme: GoogleFonts.nunitoTextTheme(Theme.of(context).textTheme),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: MyHomePage(title: 'My Flutter Template'),
+      ),
       designSize: Size(375, 812),
     );
   }
