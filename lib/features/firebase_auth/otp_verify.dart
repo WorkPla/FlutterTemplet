@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_flutter_template/TextField/user_name_textField.dart';
+import 'package:my_flutter_template/TextField/otp_text_field.dart';
 import 'package:my_flutter_template/Buttons/login_button.dart';
 
 class OTPVerify extends StatefulWidget {
@@ -38,11 +38,7 @@ class _OTPVerifyState extends State<OTPVerify> {
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 44.h),
-              UserNameField(
-                title: "OTP",
-                controller: otpController,
-                obscureText: true,
-              ),
+              PinputExample(),
               SizedBox(height: 25.h),
               LoginButton(
                 onTap: () {
