@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:my_flutter_template/TextField/user_name_textField.dart';
 import 'package:my_flutter_template/Buttons/login_button.dart';
 import 'package:my_flutter_template/features/firebase_auth/otp_verify.dart';
@@ -14,6 +15,9 @@ class MobileInfo extends StatefulWidget {
 
 class _MobileInfoState extends State<MobileInfo> {
   final usernameController = TextEditingController();
+
+  var userPhoneNo;
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -50,23 +54,30 @@ class _MobileInfoState extends State<MobileInfo> {
                 obscureText: false,
               ),
               SizedBox(height: 13.h),
-              UserNameField(
-                title: "Mobile Number",
-                controller: usernameController,
-                obscureText: false,
+              IntlPhoneField(
+                decoration: InputDecoration(
+                  labelText: 'Phone Number',
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(),
+                  ),
+                ),
+                initialCountryCode: 'BD',
+                onChanged: (phone) {
+                  print(phone.completeNumber);
+                  userPhoneNo = phone.completeNumber;
+                },
               ),
               SizedBox(height: 25.h),
               LoginButton(
                 onTap: () {
-                  final mobile = usernameController.text;
-                  print('tap on send otp to $mobile');
+                  print('tap on send otp to $userPhoneNo');
 
                   Navigator.push(
                       context,
                       new MaterialPageRoute(
                           builder: (context) => new OTPVerify(
                                 title: "Verify OTP",
-                                mobile: '$mobile',
+                                mobile: '$userPhoneNo',
                               )));
                 },
                 title: "SEND",
