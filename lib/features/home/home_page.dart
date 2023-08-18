@@ -3,6 +3,8 @@ import 'package:my_flutter_template/features/home/home_page_cell.dart';
 import 'package:my_flutter_template/features/responsive_ui_flutter_screenutil_pub/responsive_ui.dart';
 import 'package:my_flutter_template/features/firebase_auth/mobile_info.dart';
 
+import '../bloc_pattern/app.dart';
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({super.key, required this.title});
   final String title;
@@ -14,7 +16,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    var topics = ['Responsive Login Page', 'Firebase Auth'];
+    var topics = [
+      'Responsive Login Page',
+      'Firebase Auth',
+      'Bloc Pattern',
+      'Offline DB'
+    ];
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
@@ -47,7 +54,14 @@ class _MyHomePageState extends State<MyHomePage> {
                               builder: (context) => new MobileInfo(
                                     title: topic,
                                   )));
-                    }
+                    } else if (index == 2) {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new BlocApp(
+                                    title: "Bloc Pattern",
+                                  )));
+                    } else if (index == 3) {}
                   },
                   child: new HomeTableCell(topic));
             },
