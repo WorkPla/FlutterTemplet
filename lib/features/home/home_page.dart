@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_template/features/db_offline/ui%20/note_page.dart';
 import 'package:my_flutter_template/features/home/home_page_cell.dart';
 import 'package:my_flutter_template/features/responsive_ui_flutter_screenutil_pub/responsive_ui.dart';
 import 'package:my_flutter_template/features/firebase_auth/mobile_info.dart';
@@ -61,7 +62,12 @@ class _MyHomePageState extends State<MyHomePage> {
                               builder: (context) => new BlocApp(
                                     title: "Bloc Pattern",
                                   )));
-                    } else if (index == 3) {}
+                    } else if (index == 3) {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new NotesPage()));
+                    }
                   },
                   child: new HomeTableCell(topic));
             },
