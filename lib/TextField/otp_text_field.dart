@@ -5,7 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 /// This is the basic usage of Pinput
 /// For more examples check out the demo directory
 class PinputExample extends StatefulWidget {
-  const PinputExample({Key? key}) : super(key: key);
+  const PinputExample({Key? key, required this.getOtpValue}) : super(key: key);
+
+  final Function(String) getOtpValue;
 
   @override
   State<PinputExample> createState() => _PinputExampleState();
@@ -73,6 +75,7 @@ class _PinputExampleState extends State<PinputExample> {
               },
               onChanged: (value) {
                 debugPrint('onChanged: $value');
+                widget.getOtpValue(value);
               },
               cursor: Column(
                 mainAxisAlignment: MainAxisAlignment.end,

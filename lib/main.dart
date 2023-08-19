@@ -3,15 +3,17 @@ import 'package:my_flutter_template/features/home/home_page.dart';
 // import 'package:device_preview/device_preview.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
   // runApp(
   //   DevicePreview(
   //     enabled: true,
   //     builder: (context) => MyApp(),
   //   ),
   // );
-
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 

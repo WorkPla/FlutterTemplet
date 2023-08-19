@@ -15,7 +15,6 @@ class MobileInfo extends StatefulWidget {
 
 class _MobileInfoState extends State<MobileInfo> {
   final usernameController = TextEditingController();
-
   var userPhoneNo;
 
   @override
