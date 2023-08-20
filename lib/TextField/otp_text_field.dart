@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'dart:io' show Platform;
 
 /// This is the basic usage of Pinput
 /// For more examples check out the demo directory
@@ -54,6 +55,7 @@ class _PinputExampleState extends State<PinputExample> {
             // Specify direction if desired
             textDirection: TextDirection.ltr,
             child: Pinput(
+              textInputAction: TextInputAction.done,
               length: 6,
               controller: pinController,
               focusNode: focusNode,

@@ -4,16 +4,21 @@ import 'package:my_flutter_template/features/home/home_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'dart:io' show Platform;
 
 void main() async {
+  if (Platform.isAndroid) {
+    // Android-specific code
+  } else if (Platform.isIOS) {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+  }
   // runApp(
   //   DevicePreview(
   //     enabled: true,
   //     builder: (context) => MyApp(),
   //   ),
   // );
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   runApp(MyApp());
 }
 

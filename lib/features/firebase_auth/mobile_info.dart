@@ -20,6 +20,8 @@ class _MobileInfoState extends State<MobileInfo> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+        // https://stackoverflow.com/questions/67571423/bottom-overflowed-by-x-pixels-when-showing-keyboard
+        resizeToAvoidBottomInset: false,
         appBar: new AppBar(
           title: new Text(widget.title),
         ),
@@ -64,6 +66,12 @@ class _MobileInfoState extends State<MobileInfo> {
                 onChanged: (phone) {
                   print(phone.completeNumber);
                   userPhoneNo = phone.completeNumber;
+                },
+                validator: (value) {
+                  print(value);
+                  if (value != null && value!.completeNumber.length == 14) {
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  }
                 },
               ),
               SizedBox(height: 25.h),
