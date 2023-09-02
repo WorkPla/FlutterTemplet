@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_template/features/db_offline/ui%20/note_page.dart';
+import 'package:my_flutter_template/features/dropdown_popups/home.dart';
 import 'package:my_flutter_template/features/home/home_page_cell.dart';
 import 'package:my_flutter_template/features/responsive_ui_flutter_screenutil_pub/responsive_ui.dart';
 import 'package:my_flutter_template/features/firebase_auth/mobile_info.dart';
-
-import '../bloc_pattern/app.dart';
+import 'package:my_flutter_template/features/http_call/app.dart';
+import 'package:my_flutter_template/features/bloc_pattern/app.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({super.key, required this.title});
@@ -21,7 +22,9 @@ class _MyHomePageState extends State<MyHomePage> {
       'Responsive Login Page',
       'Firebase Auth',
       'Bloc Pattern',
-      'Offline DB'
+      'Offline DB',
+      'Networking',
+      'Flutter Alerts'
     ];
     return new MaterialApp(
       home: new Scaffold(
@@ -67,6 +70,20 @@ class _MyHomePageState extends State<MyHomePage> {
                           context,
                           new MaterialPageRoute(
                               builder: (context) => new NotesPage()));
+                    } else if (index == 4) {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new NetworkingExp(
+                                    title: 'Http Request',
+                                  )));
+                    } else if (index == 5) {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new Alerts(
+                                    title: topic,
+                                  )));
                     }
                   },
                   child: new HomeTableCell(topic));

@@ -69,9 +69,11 @@ class _MobileInfoState extends State<MobileInfo> {
                 },
                 validator: (value) {
                   print(value);
-                  if (value != null && value!.completeNumber.length == 14) {
+                  if (value != null && value.completeNumber.length == 14) {
+                    // hide keyboard when found a valid number
                     FocusManager.instance.primaryFocus?.unfocus();
                   }
+                  return null;
                 },
               ),
               SizedBox(height: 25.h),
