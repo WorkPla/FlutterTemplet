@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'package:my_flutter_template/features/db_offline/ui%20/note_page.dart';
 import 'package:my_flutter_template/features/dropdown_popups/home.dart';
 import 'package:my_flutter_template/features/home/home_page_cell.dart';
+import 'package:my_flutter_template/features/multi_selection/multi_selection_example.dart';
 import 'package:my_flutter_template/features/responsive_ui_flutter_screenutil_pub/responsive_ui.dart';
 import 'package:my_flutter_template/features/firebase_auth/mobile_info.dart';
 import 'package:my_flutter_template/features/http_call/app.dart';
@@ -24,7 +26,8 @@ class _MyHomePageState extends State<MyHomePage> {
       'Bloc Pattern',
       'Offline DB',
       'Networking',
-      'Flutter Alerts'
+      'Flutter Alerts',
+      'Multi Selection Example'
     ];
     return new MaterialApp(
       home: new Scaffold(
@@ -82,6 +85,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           context,
                           new MaterialPageRoute(
                               builder: (context) => new Alerts(
+                                    title: topic,
+                                  )));
+                    } else if (index == 6) {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new MultiSelectionExample(
                                     title: topic,
                                   )));
                     }
