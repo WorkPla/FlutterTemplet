@@ -1,4 +1,4 @@
-//multi_selection_example.dart
+// https://pub.dev/packages/multi_select_flutter/example
 
 import 'package:flutter/material.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
@@ -142,7 +142,7 @@ class _MultiSelectionExampleState extends State<MultiSelectionExample> {
                         },
                       ),
                     ),
-                    _selectedAnimals2 == null || _selectedAnimals2.isEmpty
+                    _selectedAnimals2.isEmpty
                         ? Container(
                             padding: EdgeInsets.all(10),
                             alignment: Alignment.centerLeft,
